@@ -2,7 +2,7 @@ package project1;
 
 import java.util.Scanner;
 
-import project1.ver02.PhoneInfo;
+import project1.ver03.PhoneInfo;
 import project1.ver03.PhoneBookManager;
 
 public class PhoneBookVer03 

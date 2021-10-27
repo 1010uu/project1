@@ -21,18 +21,40 @@ public class PhoneBookManager {
 	}
 	
 	//입력
-	public void dataInput()
+	public void dataInput(int num)
 	{
 		Scanner scanner = new Scanner(System.in);
-		String name, phoneNumber, birth;
-
-		System.out.print("이름:"); name = scanner.nextLine();
-		System.out.print("전화번호:"); phoneNumber = scanner.nextLine();
-		System.out.print("생년월일:"); birth = scanner.nextLine();
+		String name, phoneNumber, birth, major, company;
+		int grade;
 		
-		PhoneInfo info = new PhoneInfo(name, phoneNumber, birth);
-		phoneBook[numOfInfo++] = info;
-		
+		if(num==1)
+		{
+			System.out.print("이름:"); name = scanner.nextLine();
+			System.out.print("전화번호:"); phoneNumber = scanner.nextLine();
+			System.out.print("생년월일:"); birth = scanner.nextLine();
+			
+			PhoneInfo info = new PhoneInfo(name, phoneNumber, birth);
+			phoneBook[numOfInfo++] = info;
+		}
+		if(num==2)
+		{
+			System.out.print("이름:"); name = scanner.nextLine();
+			System.out.print("전화번호:"); phoneNumber = scanner.nextLine();
+			System.out.print("전공:"); major = scanner.nextLine();
+			System.out.println("학년:"); grade = scanner.nextInt();
+			
+			PhoneSchoolInfo info = new PhoneSchoolInfo(name, phoneNumber, major, grade);
+			phoneBook[numOfInfo++] = info;	
+		}
+		if(num==3)
+		{
+			System.out.print("이름:"); name = scanner.nextLine();
+			System.out.print("전화번호:"); phoneNumber = scanner.nextLine();
+			System.out.print("회사:"); company = scanner.nextLine();
+			
+			PhoneCompanyInfo info = new PhoneCompanyInfo(name, phoneNumber, company);
+			phoneBook[numOfInfo++] = info;
+		}
 		System.out.println("데이터 입력이 완료됐습니다.");
 	}
 	
