@@ -1,8 +1,13 @@
 package project1.ver08;
 
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -11,7 +16,7 @@ import javax.swing.text.ChangedCharSetException;
 
 import project1.ver08.PhoneInfo;
 
-public class PhoneBookManager implements SubMenultem 
+public class PhoneBookManager implements SubMenultem, Serializable
 {
 	private HashSet<PhoneInfo> phoneBookSet = new HashSet<PhoneInfo>();
 	
@@ -176,9 +181,50 @@ public class PhoneBookManager implements SubMenultem
 			saver.interrupt();
 			System.out.println("자동저장을 종료합니다.");
 		}
-		
 	}
 	
+	//output
+	public void out_info()
+	{
+		FileOutputStream f_stream = null;
+		try
+		{
+			f_stream = new FileOutputStream("src/project01/ver08/AutoSaveBook.obj");
+			ObjectOutputStream d_stream = new ObjectOutputStream(f_stream);
+
+			for(PhoneInfo info : phoneBookSet)
+			{
+				d_stream.writeObject(info);
+			}
+			f_stream.close();
+			d_stream.close();
+			System.out.println("obj파일로 저장됐습니다.");
+		}
+		catch (Exception e) {
+			e.getStackTrace();
+		}
+	}
+	//input
+	public void in_info()
+	{
+		FileInputStream f_stream = null;
+		PhoneInfo info = null;
+		try
+		{
+			f_stream = new FileInputStream("src/project01/ver08/AutoSaveBook.obj");
+			ObjectInputStream d_stream = new ObjectInputStream(f_stream);
+
+			info = (PhoneInfo)d_stream.readObject();
+			System.out.println(info.toString());
+			
+			f_stream.close();
+			d_stream.close();
+		}
+		catch (Exception e)
+		{
+			e.getStackTrace();
+		}
+	}
 	//주소록전체출력
 	public void dataAllShow()
 	{
