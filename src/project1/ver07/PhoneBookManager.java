@@ -16,13 +16,13 @@ public class PhoneBookManager implements SubMenultem
 	//메뉴출력
 	public void printMenu()
 	{
-		System.out.println("선택하세요...");
+		System.out.println("메뉴를 선택하세요.");
 		System.out.println("1. 데이터 입력");
 		System.out.println("2. 데이터 검색");
 		System.out.println("3. 데이터 삭제");
 		System.out.println("4. 주소록 출력");
 		System.out.println("5. 프로그램 종료");
-		System.out.print("선택:");
+		System.out.print("메뉴선택:");
 	}
 	
 	//입력
@@ -32,6 +32,7 @@ public class PhoneBookManager implements SubMenultem
 		String name, phoneNumber, birth, major, company;
 		int grade;
 		
+		System.out.println("===주소록을 입력함===");
 		System.out.println("데이터 입력을 시작합니다");
 		System.out.println("1.일반, 2.동창, 3.회사");
 		System.out.println("선택>>");
@@ -69,7 +70,7 @@ public class PhoneBookManager implements SubMenultem
 			change(name);
 			phoneBookSet.add(info);
 		}
-		System.out.println("데이터 입력이 완료됐습니다.");
+		System.out.println("===입력이 완료됐습니다===");
 	}
 	
 	void change(String name)
@@ -89,14 +90,15 @@ public class PhoneBookManager implements SubMenultem
 					
 					String yes = scanner.nextLine();
 					
-					switch (yes)
+					if((yes.equalsIgnoreCase("y")) || (yes.equalsIgnoreCase("Y")))
 					{
-					case "Y": case"y":	
 						itr.remove();
-					default:
-						info.showPhoneInfo();
-						return;
 					}
+					else
+					{
+						info.showPhoneInfo();
+					}
+					return;
 				}	
 			}
 		}
