@@ -27,5 +27,26 @@ public class PhoneInfo
 		System.out.println("전화번호:"+ phoneNumber);
 		System.out.println("생년월일"+ birthday);
 	}
-
+	
+	@Override
+	public int hashCode()
+	{
+		int phoneBookHashCode = name.hashCode();
+		return phoneBookHashCode;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		PhoneInfo phoneInfo = (PhoneInfo)obj;
+		
+		if(phoneInfo.name.equals(this.name))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

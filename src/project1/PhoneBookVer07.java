@@ -6,7 +6,7 @@ import project1.ver07.PhoneInfo;
 import project1.ver07.Menultem;
 import project1.ver07.PhoneBookManager;
 
-public class PhoneBookVer07 implements Menultem
+public class PhoneBookVer07
 {
 	public static void main(String[] args)
 	{
@@ -16,29 +16,24 @@ public class PhoneBookVer07 implements Menultem
 		while(true) 
 		{
 			mgr.printMenu();
-			
-			System.out.print("선택:");
+
 			int choice = scanner.nextInt();	
 			
 			switch (choice) 
 			{
-			case INPUT_DATE:
-				System.out.println("데이터 입력을 시작합니다");
-				System.out.println("1.일반, 2.동창, 3.회사");
-				System.out.println("선택>>");
-				int select = scanner.nextInt();
-				mgr.dataInput(select);
+			case Menultem.INPUT_DATE:
+				mgr.dataInput();
 				break;
-			case SEARCH_DATE:
+			case Menultem.SEARCH_DATE:
 				mgr.dataSearch();
 				break;
-			case DELETE_DATE:
+			case Menultem.DELETE_DATE:
 				mgr.dataDelete();
 				break;
-			case OUTPUT_DATE:
+			case Menultem.OUTPUT_DATE:
 				mgr.dataAllShow();
 				break;
-			case EXIT_PROGRAM:
+			case Menultem.EXIT_PROGRAM:
 				System.out.println("프로그램을 종료합니다.");
 				return;
 			}
