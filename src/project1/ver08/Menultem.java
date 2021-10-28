@@ -6,5 +6,6 @@ public interface Menultem
 	public int SEARCH_DATE = 2;	//	2.데이터검색
 	public int DELETE_DATE = 3;	//	3.데이터삭제
 	public int OUTPUT_DATE = 4;	//	4.출력
-	public int EXIT_PROGRAM = 5;//	5.프로그램종료
+	public int AUTO_SAVE = 5;	//	5.자동저장
+	public int EXIT_PROGRAM = 6;//	5.프로그램종료
 }
