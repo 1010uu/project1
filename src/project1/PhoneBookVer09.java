@@ -2,8 +2,8 @@ package project1;
 
 import java.util.Scanner;
 
-import project1.ver03.PhoneInfo;
-import project1.ver03.PhoneBookManager;
+import project1.ver09.PhoneInfo;
+import project1.ver09.PhoneBookManager;
 
 public class PhoneBookVer09 
 {

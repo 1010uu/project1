@@ -2,7 +2,7 @@ package project1.ver09;
 
 import java.util.Scanner;
 
-import project1.ver03.PhoneInfo;
+import project1.ver09.PhoneInfo;
 
 public class PhoneBookManager {
 	
@@ -23,72 +23,40 @@ public class PhoneBookManager {
 	//입력
 	public void dataInput()
 	{
-		Scanner scanner = new Scanner(System.in);
-		String name, phoneNumber, birth;
+//		Scanner scanner = new Scanner(System.in);
 
-		System.out.print("이름:"); name = scanner.nextLine();
-		System.out.print("전화번호:"); phoneNumber = scanner.nextLine();
-		System.out.print("생년월일:"); birth = scanner.nextLine();
-		
-		PhoneInfo info = new PhoneInfo(name, phoneNumber, birth);
-		phoneBook[numOfInfo++] = info;
-		
+		InsertSQL insertSQL = new InsertSQL();
+		insertSQL.execute();
 		System.out.println("데이터 입력이 완료됐습니다.");
 	}
+	
 	//검색
 	public void dataSearch()
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("데이터 검색을 시작합니다.");
-		System.out.print("이름:");
-		String searchName = scanner.nextLine();
+//		Scanner scanner = new Scanner(System.in);
 		
-		for(int i=0 ; i<numOfInfo ; i++)
-		{
-			if(searchName.compareTo(phoneBook[i].name)==0)
-			{
-				phoneBook[i].showPhoneInfo();
-				System.out.println("데이터 검색이 완료되었습니다.");
-			}
-		}
+		System.out.println("데이터 검색을 시작합니다.");
+		SelectSQL selectSQL = new SelectSQL();
+		selectSQL.execute();
+		System.out.println("데이터 검색이 완료되었습니다.");
 	}
 	
 	//삭제
 	public void dataDelete() 
 	{
-		Scanner scanner = new Scanner(System.in);
+//		Scanner scanner = new Scanner(System.in);
 		System.out.println("데이터 삭제를 시작합니다.");
-		System.out.print("이름:");
-		String deleteName = scanner.nextLine();
-		
-		int deleteIndex = -1;
-		
-		for(int i=0 ; i<numOfInfo ; i++)
-		{
-			if(deleteName.compareTo(phoneBook[i].name)==0)
-			{
-				phoneBook[i] = null;
-				deleteIndex = i;
-				numOfInfo--;
-				break;
-			}
-		}
-		if(deleteIndex!=-1) {
-			for(int i=deleteIndex; i<numOfInfo; i++) 
-			{
-				phoneBook[i] = phoneBook[i+1];
-			}
-			System.out.println("데이터 삭제가 완료되었습니다.");
-		}	
+		DeleteSQL deleteSQL = new DeleteSQL();
+		deleteSQL.execute();
+		System.out.println("데이터 삭제가 완료되었습니다.");
+			
 	}
-	
-	//주소록전체출력
+//주소록전체출력
 	public void dataAllShow()
 	{
-		for(int i=0 ; i<numOfInfo ; i++)
-		{
-			phoneBook[i].showPhoneInfo();
-		}
+		AllShowQuery allShowQuery = new AllShowQuery();
+		allShowQuery.execute();
+		
 	}
 	
 }
