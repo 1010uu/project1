@@ -24,12 +24,5 @@ public class DeleteSQL extends IConnectImpl
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		finally {
-			close();
-		}
-	}
-	
-	public static void main(String[] args) {
-		new DeleteSQL().execute();		
 	}
 }

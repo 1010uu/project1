@@ -60,4 +60,20 @@ public class PhoneBookManager {
 		
 	}
 	
+	//자원반납 메서드
+	public void allclose() 
+	{
+		//1.
+		InsertSQL insertSQL = new InsertSQL();
+		insertSQL.close();
+		//2.
+		SelectSQL selectSQL = new SelectSQL();
+		selectSQL.close();
+		//3.
+		DeleteSQL deleteSQL = new DeleteSQL();
+		deleteSQL.close();
+		//4.
+		AllShowQuery allShowQuery = new AllShowQuery();
+		allShowQuery.close();
+	}
 }

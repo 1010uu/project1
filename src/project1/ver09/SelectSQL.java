@@ -46,10 +46,7 @@ public class SelectSQL extends IConnectImpl
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally {
-			close();
-		}		
+		}	
 	}
 	
 }

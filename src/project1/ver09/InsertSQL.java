@@ -44,9 +44,5 @@ public class InsertSQL extends IConnectImpl
 			System.out.println("Insert 쿼리문 오류 발생");
 			e.printStackTrace();
 		}
-		finally
-		{
-			close(); //자원반납
-		}
 	}
 }

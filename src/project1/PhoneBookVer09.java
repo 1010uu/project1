@@ -34,6 +34,7 @@ public class PhoneBookVer09
 				mgr.dataAllShow();
 				break;
 			case 5:
+				mgr.allclose();
 				System.out.println("프로그램을 종료합니다.");
 				return;
 			}

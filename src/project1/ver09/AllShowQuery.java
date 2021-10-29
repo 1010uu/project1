@@ -36,10 +36,6 @@ public class AllShowQuery extends ConnectDB
 			System.out.println("쿼리오류발생");
 			e.printStackTrace();
 		}
-		finally {
-			close(); 
-		}
-		
 	}
 	
 }
