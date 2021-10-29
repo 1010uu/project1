@@ -18,6 +18,7 @@ public class PhoneBookManager {
 		System.out.println("3. 데이터 삭제");
 		System.out.println("4. 주소록 출력");
 		System.out.println("5. 프로그램 종료");
+		System.out.print("선택:");
 	}
 	//입력
 	public void dataInput()

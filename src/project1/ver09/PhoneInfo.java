@@ -21,6 +21,7 @@ public class PhoneInfo
 		this.phoneNumber = phoneNumber;
 		this.birthday = "입력되지않음";
 	}
+	//정보출력 메서드
 	public void showPhoneInfo() 
 	{
 		System.out.println("이름:"+ name);

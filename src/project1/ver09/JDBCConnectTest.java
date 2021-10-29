@@ -19,6 +19,7 @@ public class JDBCConnectTest
 			Connection con = DriverManager.getConnection(url,id,pass);
 			if(con!=null) {
 				System.out.println("Oracle 연결성공");
+				System.out.println("Oracle 연결성공");
 			}
 			else {
 				System.out.println("Oracle 연결실패");

@@ -17,7 +17,6 @@ public class PhoneBookVer09
 		{
 			mgr.printMenu();
 			
-			System.out.print("선택:");
 			int choice = scanner.nextInt();	
 			
 			switch (choice) 
