@@ -90,7 +90,7 @@ public class PhoneBookManager implements SubMenultem
 					
 					String yes = scanner.nextLine();
 					
-					if((yes.equalsIgnoreCase("y")) || (yes.equalsIgnoreCase("Y")))
+					if(yes.equalsIgnoreCase("Y"))
 					{
 						itr.remove();
 					}

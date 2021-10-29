@@ -1,9 +1,11 @@
 package project1;
 
-import java.io.Serializable;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import project1.ver08.PhoneInfo;
+import project1.ver06.MenuSelectException;
 import project1.ver08.Menultem;
 import project1.ver08.PhoneBookManager;
 
@@ -20,29 +22,51 @@ public class PhoneBookVer08
 		{
 			mgr.printMenu();
 			
-			int choice = scanner.nextInt();	
-			
-			switch (choice) 
+			try//문자입력 예외발생
 			{
-			case Menultem.INPUT_DATE:
-				mgr.dataInput();
-				break;
-			case Menultem.SEARCH_DATE:
-				mgr.dataSearch();
-				break;
-			case Menultem.DELETE_DATE:
-				mgr.dataDelete();
-				break;
-			case Menultem.OUTPUT_DATE:
-				mgr.dataAllShow();
-				break;
-			case Menultem.AUTO_SAVE:
-				mgr.AutoSave();
-				break;
-			case Menultem.EXIT_PROGRAM:
-				mgr.out_info();
-				System.out.println("프로그램을 종료합니다.");
-				return;
+				int choice = scanner.nextInt();	
+				
+				try//1~5사이가 아닌 숫자를 넣었을 때 예외발생
+				{
+					if(choice<1 || choice>5)
+					{
+						MenuSelectException warn = new MenuSelectException();
+						throw warn;
+					}
+				}
+				catch (MenuSelectException e)
+				{
+					System.out.println(e.getMessage());
+				}	
+			
+				switch (choice) 
+				{
+				case Menultem.INPUT_DATE:
+					mgr.dataInput();
+					break;
+				case Menultem.SEARCH_DATE:
+					mgr.dataSearch();
+					break;
+				case Menultem.DELETE_DATE:
+					mgr.dataDelete();
+					break;
+				case Menultem.OUTPUT_DATE:
+					mgr.dataAllShow();
+					break;
+				case Menultem.AUTO_SAVE:
+					mgr.AutoSave();
+					break;
+				case Menultem.EXIT_PROGRAM:
+					mgr.out_info(); //정보 저장하기
+					System.out.println("프로그램을 종료합니다.");
+					return;
+				}
+			}
+			catch (InputMismatchException e)
+			{
+				scanner.nextLine();
+				System.out.println("[예외발생]문자가 입력됐습니다.");
+				System.out.println("숫자를 입력해주세요");
 			}
 		}
 	}

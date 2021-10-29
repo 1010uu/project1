@@ -16,7 +16,7 @@ import javax.swing.text.ChangedCharSetException;
 
 import project1.ver08.PhoneInfo;
 
-public class PhoneBookManager implements SubMenultem, Serializable
+public class PhoneBookManager implements SubMenultem
 {
 	private HashSet<PhoneInfo> phoneBookSet = new HashSet<PhoneInfo>();
 	
@@ -94,7 +94,7 @@ public class PhoneBookManager implements SubMenultem, Serializable
 					
 					String yes = scanner.nextLine();
 					
-					if((yes.equalsIgnoreCase("y")) || (yes.equalsIgnoreCase("Y")))
+					if(yes.equalsIgnoreCase("Y"))
 					{
 						itr.remove();
 					}
@@ -189,13 +189,14 @@ public class PhoneBookManager implements SubMenultem, Serializable
 		FileOutputStream f_stream = null;
 		try
 		{
-			f_stream = new FileOutputStream("src/project01/ver08/AutoSaveBook.obj");
+			f_stream = new FileOutputStream("src/project1/ver08/AutoSaveBook.obj");
 			ObjectOutputStream d_stream = new ObjectOutputStream(f_stream);
 
 			for(PhoneInfo info : phoneBookSet)
 			{
 				d_stream.writeObject(info);
 			}
+			
 			f_stream.close();
 			d_stream.close();
 			System.out.println("obj파일로 저장됐습니다.");
@@ -211,11 +212,12 @@ public class PhoneBookManager implements SubMenultem, Serializable
 		PhoneInfo info = null;
 		try
 		{
-			f_stream = new FileInputStream("src/project01/ver08/AutoSaveBook.obj");
+			f_stream = new FileInputStream("src/project1/ver08/AutoSaveBook.obj");
 			ObjectInputStream d_stream = new ObjectInputStream(f_stream);
 
 			info = (PhoneInfo)d_stream.readObject();
-			System.out.println(info.toString());
+			
+			info.showPhoneInfo();
 			
 			f_stream.close();
 			d_stream.close();

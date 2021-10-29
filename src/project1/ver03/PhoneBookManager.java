@@ -80,6 +80,7 @@ public class PhoneBookManager {
 			System.out.println("데이터 삭제가 완료되었습니다.");
 		}	
 	}
+	
 	//주소록전체출력
 	public void dataAllShow()
 	{
@@ -88,6 +89,5 @@ public class PhoneBookManager {
 			phoneBook[i].showPhoneInfo();
 		}
 	}
-
-
+	
 }
