@@ -56,6 +56,7 @@ public class PhoneBookManager {
 	{
 		AllShowQuery allShowQuery = new AllShowQuery();
 		allShowQuery.execute();
+		System.out.println("주소록 전체 정보를 출력하였습니다.");
 		
 	}
 	

@@ -49,8 +49,4 @@ public class InsertSQL extends IConnectImpl
 			close(); //자원반납
 		}
 	}
-	public static void main(String[] args) {
-		new InsertSQL().execute();		
-	}
-
 }

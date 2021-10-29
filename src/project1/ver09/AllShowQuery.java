@@ -18,8 +18,7 @@ public class AllShowQuery extends ConnectDB
 			stmt = con.createStatement();
 			
 			String query 
-				= "SELECT idx, name, phone_number, birthday "
-						+ " FROM test_tb";
+				= "SELECT * FROM phonebook_tb";
 			
 			rs = stmt.executeQuery(query);
 			while(rs.next()) {
@@ -41,10 +40,6 @@ public class AllShowQuery extends ConnectDB
 			close(); 
 		}
 		
-	}
-	public static void main(String[] args) {
-		AllShowQuery selectSQL = new AllShowQuery();
-		selectSQL.execute();
 	}
 	
 }

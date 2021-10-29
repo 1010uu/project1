@@ -17,7 +17,7 @@ public class DeleteSQL extends IConnectImpl
 			//prepared객체 생성
 			psmt = con.prepareStatement(query);
 			//인파라미터
-			psmt.setString(1, scanValue("삭제할 이름:"));
+			psmt.setString(1, scanValue("삭제할 이름"));
 			//쿼리 실행
 			System.out.println(psmt.executeUpdate()+"행이 삭제되었습니다");
 		}

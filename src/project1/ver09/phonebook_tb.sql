@@ -19,6 +19,9 @@ create sequence seq_phonebook
     nomaxvalue
     nocycle
     nocache;
+    
+--시퀀스 삭제
+drop sequence seq_phonebook;
 
 --커밋과 롤백
 commit;

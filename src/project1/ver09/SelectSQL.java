@@ -19,7 +19,7 @@ public class SelectSQL extends IConnectImpl
 			String sql = "SELECT idx, name, phone_number, birthday "
 					+ " FROM phonebook_tb WHERE 1=1";
 
-			String searchStr = scanValue("검색할 이름:");
+			String searchStr = scanValue("검색할 이름");
 			if(searchStr!=null) {
 				sql = sql + " AND name "
 						+ " LIKE '%"+ searchStr +"%' ";
@@ -50,10 +50,6 @@ public class SelectSQL extends IConnectImpl
 		finally {
 			close();
 		}		
-	}
-	
-	public static void main(String[] args) {
-		new SelectSQL().execute();
 	}
 	
 }
